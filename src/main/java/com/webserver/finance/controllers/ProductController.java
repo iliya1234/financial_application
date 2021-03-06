@@ -35,15 +35,6 @@ public class ProductController {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping(value = "/products/{id}")
-    public ResponseEntity<List<Product>> read(@PathVariable(name = "id") int id) {
-        final Product product = productService.read(id);
-
-        return product != null
-                ? new ResponseEntity(product, HttpStatus.OK)
-                : new ResponseEntity(HttpStatus.NOT_FOUND);
-    }
-
 
     @PutMapping(value = "/products/{id}")
     public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody Product product) {

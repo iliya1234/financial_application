@@ -10,7 +10,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 public class IncomeCategorization {
     @Id
     @Column(name = "id_incomeproduct")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_incomeproduct;
 
     @Column(name = "id_incomecategory")
