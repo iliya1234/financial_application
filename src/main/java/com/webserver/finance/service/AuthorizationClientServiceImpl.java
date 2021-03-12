@@ -23,9 +23,10 @@ public class AuthorizationClientServiceImpl implements AuthorizationClientServic
     }
 
     @Override
-    public AuthorizationClient read(int id) {
-        return authorizationClientRepository.getOne(id);
+    public List<AuthorizationClient> readUser(String username, String password) {
+        return authorizationClientRepository.findByUsernameAndPassword(username,password);
     }
+
 
     @Override
     public boolean update(AuthorizationClient authorizationClient, int id) {
@@ -46,4 +47,5 @@ public class AuthorizationClientServiceImpl implements AuthorizationClientServic
         }
         return false;
     }
+
 }

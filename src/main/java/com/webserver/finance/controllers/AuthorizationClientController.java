@@ -45,4 +45,8 @@ public class AuthorizationClientController {
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
+    @GetMapping(value = "/authorizationclients/{name}&{password}")
+    public List<AuthorizationClient> readUser(@PathVariable String name,@PathVariable String password){
+        return authorizationClientService.readUser(name,password);
+    }
 }

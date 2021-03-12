@@ -1,5 +1,7 @@
 package com.webserver.finance.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 
@@ -11,10 +13,11 @@ public class AuthorizationClient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "login")
-    private String login;
+    @Column(name = "username",nullable = false)
+    private String username;
 
-    @Column(name = "password")
+    @NotNull
+    @Column(nullable = false)
     private String password;
 
     public Integer getId() {
@@ -25,12 +28,12 @@ public class AuthorizationClient {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

@@ -11,12 +11,13 @@ public interface AuthorizationClientService {
     //возврат всех продуктов
     List<AuthorizationClient> readAll();
 
-    //возврат продукта по его id
-    AuthorizationClient read(int id);
+    //возврат usera по его username и password
+    List<AuthorizationClient> readUser(String username,String password);
 
     //обновление продукта по его id
     boolean update(AuthorizationClient authorizationClient, int id);
 
     //удаление продукта по id
     boolean delete(int id);
+
 }
