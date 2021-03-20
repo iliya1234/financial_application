@@ -1,5 +1,6 @@
 package com.webserver.finance.controllers;
 
+import com.webserver.finance.models.AuthorizationClient;
 import com.webserver.finance.models.Purchase;
 import com.webserver.finance.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,9 @@ public class PurchaseController {
         return deleted
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    }
+    @GetMapping(value = "/purchases/{id}")
+    public List<Purchase> readPurchases(@PathVariable int id){
+        return purchaseService.readPurchases(id);
     }
 }

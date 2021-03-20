@@ -47,4 +47,9 @@ public class PurchaseServiceImpl implements PurchaseService{
         }
         return false;
     }
+
+    @Override
+    public List<Purchase> readPurchases(int id) {
+        return purchaseRepository.findByAuthorizationClientId(id);
+    }
 }

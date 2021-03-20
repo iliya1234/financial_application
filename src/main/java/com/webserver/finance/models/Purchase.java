@@ -11,20 +11,34 @@ public class Purchase {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name="id_client")
+    private AuthorizationClient authorizationClient;
+
+    @ManyToOne
+    @JoinColumn(name="id_product")
+    private Product product;
+
     @Column(name = "date")
     private Date date;
-
-    @Column(name = "id_client")
-    private Integer id_client;
-
-    @Column(name = "id_product")
-    private Integer id_product;
 
     @Column(name = "total")
     private Double total;
 
     @Column(name = "discription")
     private String discription;
+
+
+    public Purchase() {
+    }
+
+    public Purchase(Integer id, Date date, Double total, String discription, Product product) {
+        this.id = id;
+        this.date = date;
+        this.total = total;
+        this.discription = discription;
+        this.product = product;
+    }
 
     public Integer getId() {
         return id;
@@ -42,22 +56,6 @@ public class Purchase {
         this.date = date;
     }
 
-    public Integer getId_client() {
-        return id_client;
-    }
-
-    public void setId_client(Integer id_client) {
-        this.id_client = id_client;
-    }
-
-    public Integer getId_product() {
-        return id_product;
-    }
-
-    public void setId_product(Integer id_product) {
-        this.id_product = id_product;
-    }
-
     public Double getTotal() {
         return total;
     }
@@ -72,5 +70,13 @@ public class Purchase {
 
     public void setDiscription(String discription) {
         this.discription = discription;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }
