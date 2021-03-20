@@ -1,5 +1,6 @@
 package com.webserver.finance.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -20,7 +21,8 @@ public class AuthorizationClient {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "authorizationClient")
+    @JsonIgnore
+    @OneToMany(mappedBy="authorizationClient", cascade = CascadeType.ALL)
     private List<Purchase> purchases;
 
     public AuthorizationClient() {
@@ -30,14 +32,6 @@ public class AuthorizationClient {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.purchases = purchases;
-    }
-
-    public List<Purchase> getPurchases() {
-        return purchases;
-    }
-
-    public void setPurchases(List<Purchase> purchases) {
         this.purchases = purchases;
     }
 
@@ -63,5 +57,23 @@ public class AuthorizationClient {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
+    }
+
+    @Override
+    public String toString() {
+        return "AuthorizationClient{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", purchases=" + purchases +
+                '}';
     }
 }

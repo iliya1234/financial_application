@@ -54,6 +54,7 @@ public class PurchaseController {
     }
     @GetMapping(value = "/purchases/{id}")
     public List<Purchase> readPurchases(@PathVariable int id){
-        return purchaseService.readPurchases(id);
+        return purchaseService.readbyclient(id);
     }
+
 }

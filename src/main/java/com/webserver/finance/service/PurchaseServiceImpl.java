@@ -49,7 +49,9 @@ public class PurchaseServiceImpl implements PurchaseService{
     }
 
     @Override
-    public List<Purchase> readPurchases(int id) {
+    public List<Purchase> readbyclient(int id) {
         return purchaseRepository.findByAuthorizationClientId(id);
     }
+
+
 }

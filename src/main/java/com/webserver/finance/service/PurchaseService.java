@@ -20,6 +20,7 @@ public interface PurchaseService {
     //удаление продукта по id
     boolean delete(int id);
 
-    //возврат расходов конкретного пользователя
-    List<Purchase> readPurchases(int id);
+    //поиск по определенному клиенту, вывод продукта по имени
+    List<Purchase> readbyclient(int id);
+
 }

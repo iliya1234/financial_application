@@ -1,5 +1,7 @@
 package com.webserver.finance.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,14 +13,6 @@ public class Purchase {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name="id_client")
-    private AuthorizationClient authorizationClient;
-
-    @ManyToOne
-    @JoinColumn(name="id_product")
-    private Product product;
-
     @Column(name = "date")
     private Date date;
 
@@ -28,24 +22,24 @@ public class Purchase {
     @Column(name = "discription")
     private String discription;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "authorizationclients_id")
+    private AuthorizationClient authorizationClient;
 
     public Purchase() {
     }
 
-    public Purchase(Integer id, AuthorizationClient authorizationClient, Product product, Date date, Double total, String discription) {
+
+    public Purchase(Integer id, Date date, Double total, String discription, Product product, AuthorizationClient authorizationClient) {
         this.id = id;
-        this.authorizationClient = authorizationClient;
-        this.product = product;
         this.date = date;
         this.total = total;
         this.discription = discription;
-    }
-
-    public AuthorizationClient getAuthorizationClient() {
-        return authorizationClient;
-    }
-
-    public void setAuthorizationClient(AuthorizationClient authorizationClient) {
+        this.product = product;
         this.authorizationClient = authorizationClient;
     }
 
@@ -88,4 +82,25 @@ public class Purchase {
     public void setProduct(Product product) {
         this.product = product;
     }
+
+    public AuthorizationClient getAuthorizationClient() {
+        return authorizationClient;
+    }
+
+    public void setAuthorizationClient(AuthorizationClient authorizationClient) {
+        this.authorizationClient = authorizationClient;
+    }
+
+    @Override
+    public String toString() {
+        return "Purchase{" +
+                "id=" + id +
+                ", date=" + date +
+                ", total=" + total +
+                ", discription='" + discription + '\'' +
+                ", product=" + product +
+                ", authorizationClient=" + authorizationClient +
+                '}';
+    }
 }
+

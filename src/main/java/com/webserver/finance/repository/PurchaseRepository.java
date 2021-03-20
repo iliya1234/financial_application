@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
-    List<Purchase> findByAuthorizationClientId(Integer id);
+    //поиск по определенному клиенту, вывод продукта по имени
+    List<Purchase> findByAuthorizationClientId(int id);
 }

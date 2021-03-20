@@ -1,5 +1,7 @@
 package com.webserver.finance.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,7 +16,8 @@ public class Product {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "product")
+    @JsonIgnore
+    @OneToMany(mappedBy="product", cascade = CascadeType.ALL)
     private List<Purchase> purchases;
 
     public Product() {
@@ -48,5 +51,14 @@ public class Product {
 
     public void setPurchases(List<Purchase> purchases) {
         this.purchases = purchases;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", purchases=" + purchases +
+                '}';
     }
 }
