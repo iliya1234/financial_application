@@ -32,12 +32,21 @@ public class Purchase {
     public Purchase() {
     }
 
-    public Purchase(Integer id, Date date, Double total, String discription, Product product) {
+    public Purchase(Integer id, AuthorizationClient authorizationClient, Product product, Date date, Double total, String discription) {
         this.id = id;
+        this.authorizationClient = authorizationClient;
+        this.product = product;
         this.date = date;
         this.total = total;
         this.discription = discription;
-        this.product = product;
+    }
+
+    public AuthorizationClient getAuthorizationClient() {
+        return authorizationClient;
+    }
+
+    public void setAuthorizationClient(AuthorizationClient authorizationClient) {
+        this.authorizationClient = authorizationClient;
     }
 
     public Integer getId() {
