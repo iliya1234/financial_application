@@ -20,13 +20,18 @@ public class Product {
     @OneToMany(mappedBy="product", cascade = CascadeType.ALL)
     private List<Purchase> purchases;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
+    private ProductCategory productCategory;
+
     public Product() {
     }
 
-    public Product(Integer id, String name, List<Purchase> purchases) {
+    public Product(Integer id, String name, List<Purchase> purchases, ProductCategory productCategory) {
         this.id = id;
         this.name = name;
         this.purchases = purchases;
+        this.productCategory = productCategory;
     }
 
     public Integer getId() {
@@ -53,12 +58,21 @@ public class Product {
         this.purchases = purchases;
     }
 
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", purchases=" + purchases +
+                ", productCategory=" + productCategory +
                 '}';
     }
 }

@@ -1,6 +1,9 @@
 package com.webserver.finance.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "productcategories")
@@ -12,6 +15,19 @@ public class ProductCategory {
 
     @Column(name = "name")
     private String name;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="productCategory", cascade = CascadeType.ALL)
+    private List<Product> products;
+
+    public ProductCategory() {
+    }
+
+    public ProductCategory(int id, String name, List<Product> products) {
+        this.id = id;
+        this.name = name;
+        this.products = products;
+    }
 
     public int getId() {
         return id;
@@ -27,5 +43,22 @@ public class ProductCategory {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductCategory{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", products=" + products +
+                '}';
     }
 }
