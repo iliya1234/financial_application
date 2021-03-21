@@ -53,5 +53,10 @@ public class PurchaseServiceImpl implements PurchaseService{
         return purchaseRepository.findByAuthorizationClientId(id);
     }
 
+    @Override
+    public Purchase readbyid(int id) {
+        return purchaseRepository.findById(id);
+    }
+
 
 }

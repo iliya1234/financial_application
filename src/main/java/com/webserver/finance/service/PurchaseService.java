@@ -23,4 +23,6 @@ public interface PurchaseService {
     //поиск по определенному клиенту, вывод продукта по имени
     List<Purchase> readbyclient(int id);
 
+    Purchase readbyid(int id);
+
 }
