@@ -20,4 +20,6 @@ public interface ProductService {
 
     //удаление продукта по id
     boolean delete(int id);
+
+    List<Product> readproductbyuser(int id);
 }

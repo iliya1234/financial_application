@@ -20,13 +20,26 @@ public class ProductCategory {
     @OneToMany(mappedBy="productCategory", cascade = CascadeType.ALL)
     private List<Product> products;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "authorizationclients_id")
+    private AuthorizationClient authorizationClientCategory;
+
     public ProductCategory() {
     }
 
-    public ProductCategory(int id, String name, List<Product> products) {
+    public ProductCategory(int id, String name, List<Product> products, AuthorizationClient authorizationClientCategory) {
         this.id = id;
         this.name = name;
         this.products = products;
+        this.authorizationClientCategory = authorizationClientCategory;
+    }
+
+    public AuthorizationClient getAuthorizationClientCategory() {
+        return authorizationClientCategory;
+    }
+
+    public void setAuthorizationClientCategory(AuthorizationClient authorizationClientCategory) {
+        this.authorizationClientCategory = authorizationClientCategory;
     }
 
     public int getId() {

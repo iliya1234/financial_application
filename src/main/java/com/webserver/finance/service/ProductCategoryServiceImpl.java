@@ -46,4 +46,9 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
         }
         return false;
     }
+
+    @Override
+    public List<ProductCategory> readbyuser(int id) {
+        return productCategoryRepository.findByAuthorizationClientCategoryId(id);
+    }
 }

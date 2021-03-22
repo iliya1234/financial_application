@@ -25,14 +25,42 @@ public class AuthorizationClient {
     @OneToMany(mappedBy="authorizationClient", cascade = CascadeType.ALL)
     private List<Purchase> purchases;
 
+    @JsonIgnore
+    @OneToMany(mappedBy="authorizationClientCategory", cascade = CascadeType.ALL)
+    private List<ProductCategory> productCategories;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="userId", cascade = CascadeType.ALL)
+    private List<Product> products;
+
+
+
     public AuthorizationClient() {
     }
 
-    public AuthorizationClient(Integer id, String username, String password, List<Purchase> purchases) {
+    public AuthorizationClient(Integer id, String username, String password, List<Purchase> purchases, List<ProductCategory> productCategories, List<Product> products) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.purchases = purchases;
+        this.productCategories = productCategories;
+        this.products = products;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public List<ProductCategory> getProductCategories() {
+        return productCategories;
+    }
+
+    public void setProductCategories(List<ProductCategory> productCategories) {
+        this.productCategories = productCategories;
     }
 
     public Integer getId() {
@@ -74,6 +102,8 @@ public class AuthorizationClient {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", purchases=" + purchases +
+                ", productCategories=" + productCategories +
+                ", products=" + products +
                 '}';
     }
 }

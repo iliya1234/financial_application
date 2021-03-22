@@ -1,6 +1,7 @@
 package com.webserver.finance.controllers;
 
 import com.webserver.finance.models.ProductCategory;
+import com.webserver.finance.models.Purchase;
 import com.webserver.finance.service.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,5 +45,10 @@ public class ProductCategoryController {
         return deleted
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    }
+
+    @GetMapping(value = "/productcategories/{id}")
+    public List<ProductCategory> readcategorybyuser(@PathVariable int id){
+        return productCategoryService.readbyuser(id);
     }
 }

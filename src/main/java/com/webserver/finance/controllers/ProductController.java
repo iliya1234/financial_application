@@ -2,6 +2,7 @@ package com.webserver.finance.controllers;
 
 
 import com.webserver.finance.models.Product;
+import com.webserver.finance.models.ProductCategory;
 import com.webserver.finance.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,5 +53,9 @@ public class ProductController {
         return deleted
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    }
+    @GetMapping(value = "/products/{id}")
+    public List<Product> readprodbyuser(@PathVariable int id){
+        return productService.readproductbyuser(id);
     }
 }

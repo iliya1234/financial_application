@@ -24,14 +24,27 @@ public class Product {
     @JoinColumn(name = "category_id")
     private ProductCategory productCategory;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "authorizationclients_id")
+    private AuthorizationClient userId;
+
     public Product() {
     }
 
-    public Product(Integer id, String name, List<Purchase> purchases, ProductCategory productCategory) {
+    public Product(Integer id, String name, List<Purchase> purchases, ProductCategory productCategory, AuthorizationClient userId) {
         this.id = id;
         this.name = name;
         this.purchases = purchases;
         this.productCategory = productCategory;
+        this.userId = userId;
+    }
+
+    public AuthorizationClient getUserId() {
+        return userId;
+    }
+
+    public void setUserId(AuthorizationClient userId) {
+        this.userId = userId;
     }
 
     public Integer getId() {
@@ -73,6 +86,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", purchases=" + purchases +
                 ", productCategory=" + productCategory +
+                ", userId=" + userId +
                 '}';
     }
 }
