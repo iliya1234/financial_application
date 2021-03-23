@@ -50,7 +50,8 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<Product> readproductbyuser(int id) {
-        return productRepository.findByUserIdId(id);
+    public List<Product> readbyuser(int id) {
+        return productRepository.findByProductCategoryAuthorizationClientCategoryId(id);
     }
+
 }

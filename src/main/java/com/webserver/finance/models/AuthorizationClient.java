@@ -21,45 +21,21 @@ public class AuthorizationClient {
     @Column(nullable = false)
     private String password;
 
-    @JsonIgnore
-    @OneToMany(mappedBy="authorizationClient", cascade = CascadeType.ALL)
-    private List<Purchase> purchases;
 
     @JsonIgnore
     @OneToMany(mappedBy="authorizationClientCategory", cascade = CascadeType.ALL)
     private List<ProductCategory> productCategories;
 
-    @JsonIgnore
-    @OneToMany(mappedBy="userId", cascade = CascadeType.ALL)
-    private List<Product> products;
 
 
 
     public AuthorizationClient() {
     }
 
-    public AuthorizationClient(Integer id, String username, String password, List<Purchase> purchases, List<ProductCategory> productCategories, List<Product> products) {
+    public AuthorizationClient(Integer id, String username, String password, List<ProductCategory> productCategories) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.purchases = purchases;
-        this.productCategories = productCategories;
-        this.products = products;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    public List<ProductCategory> getProductCategories() {
-        return productCategories;
-    }
-
-    public void setProductCategories(List<ProductCategory> productCategories) {
         this.productCategories = productCategories;
     }
 
@@ -87,12 +63,12 @@ public class AuthorizationClient {
         this.password = password;
     }
 
-    public List<Purchase> getPurchases() {
-        return purchases;
+    public List<ProductCategory> getProductCategories() {
+        return productCategories;
     }
 
-    public void setPurchases(List<Purchase> purchases) {
-        this.purchases = purchases;
+    public void setProductCategories(List<ProductCategory> productCategories) {
+        this.productCategories = productCategories;
     }
 
     @Override
@@ -101,9 +77,7 @@ public class AuthorizationClient {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", purchases=" + purchases +
                 ", productCategories=" + productCategories +
-                ", products=" + products +
                 '}';
     }
 }

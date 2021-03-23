@@ -26,21 +26,16 @@ public class Purchase {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "authorizationclients_id")
-    private AuthorizationClient authorizationClient;
 
     public Purchase() {
     }
 
-
-    public Purchase(Integer id, Date date, Double total, String discription, Product product, AuthorizationClient authorizationClient) {
+    public Purchase(Integer id, Date date, Double total, String discription, Product product) {
         this.id = id;
         this.date = date;
         this.total = total;
         this.discription = discription;
         this.product = product;
-        this.authorizationClient = authorizationClient;
     }
 
     public Integer getId() {
@@ -83,14 +78,6 @@ public class Purchase {
         this.product = product;
     }
 
-    public AuthorizationClient getAuthorizationClient() {
-        return authorizationClient;
-    }
-
-    public void setAuthorizationClient(AuthorizationClient authorizationClient) {
-        this.authorizationClient = authorizationClient;
-    }
-
     @Override
     public String toString() {
         return "Purchase{" +
@@ -99,7 +86,6 @@ public class Purchase {
                 ", total=" + total +
                 ", discription='" + discription + '\'' +
                 ", product=" + product +
-                ", authorizationClient=" + authorizationClient +
                 '}';
     }
 }

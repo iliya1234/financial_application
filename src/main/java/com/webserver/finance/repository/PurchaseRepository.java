@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
     //поиск по определенному клиенту, вывод продукта по имени
-    List<Purchase> findByAuthorizationClientId(int id);
+    List<Purchase> findByProductProductCategoryAuthorizationClientCategoryId(int id);
 
     Purchase findById(int id);
 }

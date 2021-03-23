@@ -21,5 +21,6 @@ public interface ProductService {
     //удаление продукта по id
     boolean delete(int id);
 
-    List<Product> readproductbyuser(int id);
+    //поиск продукта по id user из таблицы productcategory
+    List<Product> readbyuser(int id);
 }
