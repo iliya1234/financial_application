@@ -20,7 +20,7 @@ public class Product {
     @OneToMany(mappedBy="product", cascade = CascadeType.ALL)
     private List<Purchase> purchases;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private ProductCategory productCategory;
 
