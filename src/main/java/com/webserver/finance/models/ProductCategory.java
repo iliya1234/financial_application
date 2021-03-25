@@ -20,7 +20,7 @@ public class ProductCategory {
     @OneToMany(mappedBy="productCategory", cascade = CascadeType.ALL)
     private List<Product> products;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "authorizationclients_id")
     private AuthorizationClient authorizationClientCategory;
 
