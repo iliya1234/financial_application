@@ -23,4 +23,7 @@ public interface ProductService {
 
     //поиск продукта по id user из таблицы productcategory
     List<Product> readbyuser(int id);
+
+    //поиск продуктов по категории и по id_user
+    List<Product> readbycategory(int id_categor);
 }
