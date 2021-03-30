@@ -1,5 +1,6 @@
 package com.webserver.finance.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class Purchase {
     private Integer id;
 
     @Column(name = "date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd.MM.yyyy")
     private Date date;
 
     @Column(name = "total")
