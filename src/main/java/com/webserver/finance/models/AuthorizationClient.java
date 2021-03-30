@@ -23,7 +23,7 @@ public class AuthorizationClient {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy="authorizationClientCategory", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="authorizationClientCategory",cascade = CascadeType.ALL)
     private List<ProductCategory> productCategories;
 
 

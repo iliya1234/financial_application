@@ -17,7 +17,7 @@ public class ProductCategory {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy="productCategory")
+    @OneToMany(mappedBy="productCategory",cascade = CascadeType.ALL)
     private List<Product> products;
 
     @ManyToOne
