@@ -1,7 +1,7 @@
 package com.webserver.finance.controllers;
 
 import com.webserver.finance.models.Income;
-import com.webserver.finance.service.IncomeService;
+import com.webserver.finance.service.Service.IncomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

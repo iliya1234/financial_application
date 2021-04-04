@@ -1,7 +1,7 @@
 package com.webserver.finance.controllers;
 
 import com.webserver.finance.models.AuthorizationClient;
-import com.webserver.finance.service.AuthorizationClientService;
+import com.webserver.finance.service.Service.AuthorizationClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

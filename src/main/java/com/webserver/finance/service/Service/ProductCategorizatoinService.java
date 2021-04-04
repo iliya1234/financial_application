@@ -1,4 +1,4 @@
-package com.webserver.finance.service;
+package com.webserver.finance.service.Service;
 
 
 import com.webserver.finance.models.ProductCategorization;

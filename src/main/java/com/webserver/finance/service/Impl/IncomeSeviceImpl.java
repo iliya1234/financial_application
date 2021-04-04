@@ -1,16 +1,17 @@
-package com.webserver.finance.service;
+package com.webserver.finance.service.Impl;
 
 
 
 import com.webserver.finance.models.Income;
 import com.webserver.finance.repository.IncomeRepository;
+import com.webserver.finance.service.Service.IncomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class IncomeSeviceImpl implements IncomeService{
+public class IncomeSeviceImpl implements IncomeService {
     @Autowired
     private IncomeRepository incomeRepository;
 

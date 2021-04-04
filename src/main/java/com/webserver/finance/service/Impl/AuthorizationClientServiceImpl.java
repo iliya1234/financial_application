@@ -1,7 +1,8 @@
-package com.webserver.finance.service;
+package com.webserver.finance.service.Impl;
 
 import com.webserver.finance.models.AuthorizationClient;
 import com.webserver.finance.repository.AuthorizationClientRepository;
+import com.webserver.finance.service.Service.AuthorizationClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

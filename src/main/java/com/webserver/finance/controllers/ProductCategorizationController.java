@@ -2,7 +2,7 @@ package com.webserver.finance.controllers;
 
 
 import com.webserver.finance.models.ProductCategorization;
-import com.webserver.finance.service.ProductCategorizatoinService;
+import com.webserver.finance.service.Service.ProductCategorizatoinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,13 +1,14 @@
-package com.webserver.finance.service;
+package com.webserver.finance.service.Impl;
 
 import com.webserver.finance.models.ProductCategorization;
 import com.webserver.finance.repository.ProductCategorizatoinRepository;
+import com.webserver.finance.service.Service.ProductCategorizatoinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class ProductCategorizatoinServiceImpl implements ProductCategorizatoinService{
+public class ProductCategorizatoinServiceImpl implements ProductCategorizatoinService {
     @Autowired
     private ProductCategorizatoinRepository productCategorizatoinRepository;
 

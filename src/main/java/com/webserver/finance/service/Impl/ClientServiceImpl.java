@@ -1,7 +1,8 @@
-package com.webserver.finance.service;
+package com.webserver.finance.service.Impl;
 
 import com.webserver.finance.models.Client;
 import com.webserver.finance.repository.ClientRepository;
+import com.webserver.finance.service.Service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ClientServiceImpl implements ClientService{
+public class ClientServiceImpl implements ClientService {
     @Autowired
     private ClientRepository clientRepository;
 

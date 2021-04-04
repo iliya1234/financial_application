@@ -2,7 +2,7 @@ package com.webserver.finance.controllers;
 
 
 import com.webserver.finance.models.IncomeCategorization;
-import com.webserver.finance.service.IncomeCategorizationService;
+import com.webserver.finance.service.Service.IncomeCategorizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

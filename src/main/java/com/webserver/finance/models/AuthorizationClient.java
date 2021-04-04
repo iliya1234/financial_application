@@ -26,6 +26,9 @@ public class AuthorizationClient {
     @OneToMany(mappedBy="authorizationClientCategory",cascade = CascadeType.ALL)
     private List<ProductCategory> productCategories;
 
+    @JsonIgnore
+    @OneToMany(mappedBy="users",cascade = CascadeType.ALL)
+    private List<Target> targets;
 
 
 

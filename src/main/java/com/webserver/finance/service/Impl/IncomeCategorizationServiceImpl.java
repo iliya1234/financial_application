@@ -1,8 +1,9 @@
-package com.webserver.finance.service;
+package com.webserver.finance.service.Impl;
 
 
 import com.webserver.finance.models.IncomeCategorization;
 import com.webserver.finance.repository.IncomeCategorizationRepository;
+import com.webserver.finance.service.Service.IncomeCategorizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

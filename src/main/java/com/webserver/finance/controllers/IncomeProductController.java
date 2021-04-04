@@ -2,7 +2,7 @@ package com.webserver.finance.controllers;
 
 
 import com.webserver.finance.models.IncomeProduct;
-import com.webserver.finance.service.IncomeProductService;
+import com.webserver.finance.service.Service.IncomeProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,14 +1,15 @@
-package com.webserver.finance.service;
+package com.webserver.finance.service.Impl;
 
 import com.webserver.finance.models.Purchase;
 import com.webserver.finance.repository.PurchaseRepository;
+import com.webserver.finance.service.Service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PurchaseServiceImpl implements PurchaseService{
+public class PurchaseServiceImpl implements PurchaseService {
 
     @Autowired
     private PurchaseRepository purchaseRepository;
