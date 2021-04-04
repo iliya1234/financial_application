@@ -3,6 +3,7 @@ package com.webserver.finance.models;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,22 +16,22 @@ public class Target {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "name")
+    @Column(name = "name",nullable = false)
     private String name;
 
-    @Column(name = "startdate")
+    @Column(name = "startdate",nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd.MM.yyyy")
     private Date start;
 
-    @Column(name = "enddate")
+    @Column(name = "enddate",nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd.MM.yyyy")
     private Date end;
 
-    @Column(name = "sum")
+    @Column(name = "sum",nullable = false)
     private Double sum;
 
     @ManyToOne
-    @JoinColumn(name = "users")
+    @JoinColumn(name = "users",nullable = false)
     private AuthorizationClient users;
 
     public Target() {
