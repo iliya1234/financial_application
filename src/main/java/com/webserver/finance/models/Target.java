@@ -27,8 +27,11 @@ public class Target {
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd.MM.yyyy")
     private Date end;
 
-    @Column(name = "sum",nullable = false)
-    private Double sum;
+    @Column(name = "sumend",nullable = false)
+    private Double sumend;
+
+    @Column(name = "sumuser",nullable = false)
+    private Double sumuser;
 
     @ManyToOne
     @JoinColumn(name = "users",nullable = false)
@@ -37,25 +40,14 @@ public class Target {
     public Target() {
     }
 
-    public Target(Integer id, String name, Date start, Date end, Double sum, AuthorizationClient users) {
+    public Target(Integer id, String name, Date start, Date end, Double sumend, Double sumuser, AuthorizationClient users) {
         this.id = id;
         this.name = name;
         this.start = start;
         this.end = end;
-        this.sum = sum;
+        this.sumend = sumend;
+        this.sumuser = sumuser;
         this.users = users;
-    }
-
-    @Override
-    public String toString() {
-        return "Target{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", start=" + start +
-                ", end=" + end +
-                ", sum=" + sum +
-                ", users=" + users +
-                '}';
     }
 
     public Integer getId() {
@@ -90,12 +82,20 @@ public class Target {
         this.end = end;
     }
 
-    public Double getSum() {
-        return sum;
+    public Double getSumend() {
+        return sumend;
     }
 
-    public void setSum(Double sum) {
-        this.sum = sum;
+    public void setSumend(Double sumend) {
+        this.sumend = sumend;
+    }
+
+    public Double getSumuser() {
+        return sumuser;
+    }
+
+    public void setSumuser(Double sumuser) {
+        this.sumuser = sumuser;
     }
 
     public AuthorizationClient getUsers() {
@@ -104,5 +104,18 @@ public class Target {
 
     public void setUsers(AuthorizationClient users) {
         this.users = users;
+    }
+
+    @Override
+    public String toString() {
+        return "Target{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", start=" + start +
+                ", end=" + end +
+                ", sumend=" + sumend +
+                ", sumuser=" + sumuser +
+                ", users=" + users +
+                '}';
     }
 }
