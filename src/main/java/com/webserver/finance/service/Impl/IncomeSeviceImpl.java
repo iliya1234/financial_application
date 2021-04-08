@@ -49,4 +49,14 @@ public class IncomeSeviceImpl implements IncomeService {
         }
         return false;
     }
+
+    @Override
+    public List<Income> readbyclient(int id) {
+        return incomeRepository.findByIncomeProductIncomeCategoryClientsIdOrderByDateDesc(id);
+    }
+
+    @Override
+    public Income readbyid(int id) {
+        return incomeRepository.findById(id);
+    }
 }

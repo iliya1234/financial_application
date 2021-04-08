@@ -2,6 +2,7 @@ package com.webserver.finance.controllers;
 
 
 import com.webserver.finance.models.IncomeCategory;
+import com.webserver.finance.models.ProductCategory;
 import com.webserver.finance.service.Service.IncomeCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,5 +47,9 @@ public class IncomeCategoryController {
         return deleted
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    }
+    @GetMapping(value = "/incomecategories/{id}")
+    public List<IncomeCategory> readcategorybyuser(@PathVariable int id){
+        return incomeCategoryService.readbyuser(id);
     }
 }

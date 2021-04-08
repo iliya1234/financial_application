@@ -1,6 +1,7 @@
 package com.webserver.finance.controllers;
 
 import com.webserver.finance.models.Income;
+import com.webserver.finance.models.Purchase;
 import com.webserver.finance.service.Service.IncomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,5 +46,13 @@ public class IncomeController {
         return deleted
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    }
+    @GetMapping(value = "/incomes/{id}")
+    public List<Income> readPurchases(@PathVariable int id){
+        return incomeService.readbyclient(id);
+    }
+    @GetMapping(value = "/incomes/info/{id}")
+    public Income read(@PathVariable int id){
+        return incomeService.readbyid(id);
     }
 }

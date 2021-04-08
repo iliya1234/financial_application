@@ -18,7 +18,7 @@ public class AuthorizationClient {
     @Column(name = "username",nullable = false)
     private String username;
 
-    @Column(nullable = false)
+    @Column(name = "password",nullable = false)
     private String password;
 
 
@@ -30,16 +30,38 @@ public class AuthorizationClient {
     @OneToMany(mappedBy="users",cascade = CascadeType.ALL)
     private List<Target> targets;
 
+    @JsonIgnore
+    @OneToMany(mappedBy="clients",cascade = CascadeType.ALL)
+    private List<IncomeCategory> incomeCategories;
+
 
 
     public AuthorizationClient() {
     }
 
-    public AuthorizationClient(Integer id, String username, String password, List<ProductCategory> productCategories) {
+    public AuthorizationClient(Integer id, String username, String password, List<ProductCategory> productCategories, List<Target> targets, List<IncomeCategory> incomeCategories) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.productCategories = productCategories;
+        this.targets = targets;
+        this.incomeCategories = incomeCategories;
+    }
+
+    public List<Target> getTargets() {
+        return targets;
+    }
+
+    public void setTargets(List<Target> targets) {
+        this.targets = targets;
+    }
+
+    public List<IncomeCategory> getIncomeCategories() {
+        return incomeCategories;
+    }
+
+    public void setIncomeCategories(List<IncomeCategory> incomeCategories) {
+        this.incomeCategories = incomeCategories;
     }
 
     public Integer getId() {

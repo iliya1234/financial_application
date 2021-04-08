@@ -2,6 +2,7 @@ package com.webserver.finance.service.Service;
 
 
 import com.webserver.finance.models.IncomeCategory;
+import com.webserver.finance.models.ProductCategory;
 
 import java.util.List;
 
@@ -20,4 +21,7 @@ public interface IncomeCategoryService {
 
     //удаление продукта по id
     boolean delete(int id);
+
+    //возврат категорий конкретного пользователя
+    List<IncomeCategory> readbyuser(int id);
 }

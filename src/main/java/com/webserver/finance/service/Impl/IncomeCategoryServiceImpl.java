@@ -2,6 +2,7 @@ package com.webserver.finance.service.Impl;
 
 
 import com.webserver.finance.models.IncomeCategory;
+import com.webserver.finance.models.ProductCategory;
 import com.webserver.finance.repository.IncomeCategoryRepository;
 import com.webserver.finance.service.Service.IncomeCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,10 @@ public class IncomeCategoryServiceImpl implements IncomeCategoryService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<IncomeCategory> readbyuser(int id) {
+        return incomeCategoryRepository.findByClientsId(id);
     }
 }

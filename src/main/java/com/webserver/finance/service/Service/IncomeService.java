@@ -1,6 +1,7 @@
 package com.webserver.finance.service.Service;
 
 import com.webserver.finance.models.Income;
+import com.webserver.finance.models.Purchase;
 
 import java.util.List;
 
@@ -19,4 +20,8 @@ public interface IncomeService {
 
     //удаление продукта по id
     boolean delete(int id);
+
+    List<Income> readbyclient(int id);
+
+    Income readbyid(int id);
 }

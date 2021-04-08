@@ -48,4 +48,14 @@ public class IncomeProductServiceImpl implements IncomeProductService {
         }
         return false;
     }
+
+    @Override
+    public List<IncomeProduct> readincomeproductbyuser(int id) {
+        return incomeProductRepository.findByIncomeCategoryClientsId(id);
+    }
+
+    @Override
+    public List<IncomeProduct> readbycategory(int id_categor) {
+        return incomeProductRepository.findByIncomeCategoryId(id_categor);
+    }
 }

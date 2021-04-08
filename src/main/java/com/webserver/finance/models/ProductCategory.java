@@ -13,7 +13,7 @@ public class ProductCategory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "name")
+    @Column(name = "name",nullable = false)
     private String name;
 
     @JsonIgnore
@@ -21,7 +21,7 @@ public class ProductCategory {
     private List<Product> products;
 
     @ManyToOne
-    @JoinColumn(name = "authorizationclients_id")
+    @JoinColumn(name = "authorizationclients_id",nullable = false)
     private AuthorizationClient authorizationClientCategory;
 
     public ProductCategory() {

@@ -13,7 +13,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "name")
+    @Column(name = "name",nullable = false)
     private String name;
 
     @JsonIgnore
@@ -21,7 +21,7 @@ public class Product {
     private List<Purchase> purchases;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id",nullable = false)
     private ProductCategory productCategory;
 
 

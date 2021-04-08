@@ -14,18 +14,18 @@ public class Purchase {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "date")
+    @Column(name = "date",nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd.MM.yyyy")
     private Date date;
 
-    @Column(name = "total")
+    @Column(name = "total",nullable = false)
     private Double total;
 
     @Column(name = "discription")
     private String discription;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id",nullable = false)
     private Product product;
 
 

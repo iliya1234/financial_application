@@ -2,6 +2,7 @@ package com.webserver.finance.controllers;
 
 
 import com.webserver.finance.models.IncomeProduct;
+import com.webserver.finance.models.Product;
 import com.webserver.finance.service.Service.IncomeProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,5 +48,14 @@ public class IncomeProductController {
         return deleted
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    }
+    @GetMapping(value = "/incomeproducts/{id}")
+    public List<IncomeProduct> readByUserID(@PathVariable int id){
+        return incomeProductService.readincomeproductbyuser(id);
+    }
+
+    @GetMapping(value = "/incomeproducts/category/{id_category}")
+    public List<IncomeProduct> readByCategoryID(@PathVariable int id_category){
+        return incomeProductService.readbycategory(id_category);
     }
 }
