@@ -1,5 +1,6 @@
 package com.webserver.finance.controllers;
 
+
 import com.webserver.finance.models.Purchase;
 import com.webserver.finance.service.Service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,26 @@ public class PurchaseController {
     @GetMapping(value = "/purchases/info/{id}")
     public Purchase read(@PathVariable int id){
         return purchaseService.readbyid(id);
+    }
+
+    @GetMapping(value = "/purchases/gettotaltoday")
+    public List<Object[]> getInfoToday(){
+        return purchaseService.readtodaytotal();
+    }
+
+    @GetMapping(value = "/purchases/gettotalweek")
+    public List<Object[]> getInfoWeek(){
+        return purchaseService.readweektotal();
+    }
+
+    @GetMapping(value = "/purchases/gettotalmonth")
+    public List<Object[]> getInfoMounth(){
+        return purchaseService.readmonthtotal();
+    }
+
+    @GetMapping(value = "/purchases/gettotalyear")
+    public List<Object[]> getInfoYear(){
+        return purchaseService.readyeartotal();
     }
 
 }

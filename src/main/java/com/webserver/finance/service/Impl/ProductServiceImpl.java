@@ -60,4 +60,9 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findByProductCategoryId(id_category);
     }
 
+    @Override
+    public List<Product> test() {
+        return productRepository.getInfo();
+    }
+
 }

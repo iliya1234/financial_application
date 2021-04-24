@@ -59,5 +59,25 @@ public class PurchaseServiceImpl implements PurchaseService {
         return purchaseRepository.findById(id);
     }
 
+    @Override
+    public List<Object[]> readtodaytotal() {
+        return purchaseRepository.todayTotalPurchases();
+    }
+
+    @Override
+    public List<Object[]> readweektotal() {
+        return purchaseRepository.weekTotalPurchases();
+    }
+
+    @Override
+    public List<Object[]> readmonthtotal() {
+        return purchaseRepository.monthTotalPurchases();
+    }
+
+    @Override
+    public List<Object[]> readyeartotal() {
+        return purchaseRepository.yearTotalPurchases();
+    }
+
 
 }

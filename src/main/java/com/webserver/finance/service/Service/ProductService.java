@@ -26,4 +26,6 @@ public interface ProductService {
 
     //поиск продуктов по категории и по id_user
     List<Product> readbycategory(int id_categor);
+
+    List<Product> test();
 }

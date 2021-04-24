@@ -62,4 +62,9 @@ public class ProductController {
     public List<Product> readByCategoryID(@PathVariable int id_category){
         return productService.readbycategory(id_category);
     }
+
+    @GetMapping(value = "/products/test")
+    public List<Product> test(){
+        return productService.test();
+    }
 }
