@@ -55,4 +55,24 @@ public class IncomeController {
     public Income read(@PathVariable int id){
         return incomeService.readbyid(id);
     }
+
+    @GetMapping(value = "/incomes/gettotaltoday/{id}")
+    public List<Object[]> getInfoToday(@PathVariable int id){
+        return incomeService.readtodaytotal(id);
+    }
+
+    @GetMapping(value = "/incomes/gettotalweek/{id}")
+    public List<Object[]> getInfoWeek(@PathVariable int id){
+        return incomeService.readweektotal(id);
+    }
+
+    @GetMapping(value = "/incomes/gettotalmonth/{id}")
+    public List<Object[]> getInfoMounth(@PathVariable int id){
+        return incomeService.readmonthtotal(id);
+    }
+
+    @GetMapping(value = "/incomes/gettotalyear/{id}")
+    public List<Object[]> getInfoYear(@PathVariable int id){
+        return incomeService.readyeartotal(id);
+    }
 }

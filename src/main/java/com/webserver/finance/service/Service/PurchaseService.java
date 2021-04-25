@@ -25,11 +25,11 @@ public interface PurchaseService {
 
     Purchase readbyid(int id);
 
-    List<Object[]>readtodaytotal();
+    List<Object[]>readtodaytotal(int id);
 
-    List<Object[]>readweektotal();
+    List<Object[]>readweektotal(int id);
 
-    List<Object[]>readmonthtotal();
+    List<Object[]>readmonthtotal(int id);
 
-    List<Object[]>readyeartotal();
+    List<Object[]>readyeartotal(int id);
 }

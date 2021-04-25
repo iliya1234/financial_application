@@ -24,4 +24,12 @@ public interface IncomeService {
     List<Income> readbyclient(int id);
 
     Income readbyid(int id);
+
+    List<Object[]>readtodaytotal(int id);
+
+    List<Object[]>readweektotal(int id);
+
+    List<Object[]>readmonthtotal(int id);
+
+    List<Object[]>readyeartotal(int id);
 }

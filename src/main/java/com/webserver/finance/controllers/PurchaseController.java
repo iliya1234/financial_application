@@ -61,24 +61,24 @@ public class PurchaseController {
         return purchaseService.readbyid(id);
     }
 
-    @GetMapping(value = "/purchases/gettotaltoday")
-    public List<Object[]> getInfoToday(){
-        return purchaseService.readtodaytotal();
+    @GetMapping(value = "/purchases/gettotaltoday/{id}")
+    public List<Object[]> getInfoToday(@PathVariable int id){
+        return purchaseService.readtodaytotal(id);
     }
 
-    @GetMapping(value = "/purchases/gettotalweek")
-    public List<Object[]> getInfoWeek(){
-        return purchaseService.readweektotal();
+    @GetMapping(value = "/purchases/gettotalweek/{id}")
+    public List<Object[]> getInfoWeek(@PathVariable int id){
+        return purchaseService.readweektotal(id);
     }
 
-    @GetMapping(value = "/purchases/gettotalmonth")
-    public List<Object[]> getInfoMounth(){
-        return purchaseService.readmonthtotal();
+    @GetMapping(value = "/purchases/gettotalmonth/{id}")
+    public List<Object[]> getInfoMounth(@PathVariable int id){
+        return purchaseService.readmonthtotal(id);
     }
 
-    @GetMapping(value = "/purchases/gettotalyear")
-    public List<Object[]> getInfoYear(){
-        return purchaseService.readyeartotal();
+    @GetMapping(value = "/purchases/gettotalyear/{id}")
+    public List<Object[]> getInfoYear(@PathVariable int id){
+        return purchaseService.readyeartotal(id);
     }
 
 }

@@ -59,4 +59,24 @@ public class IncomeSeviceImpl implements IncomeService {
     public Income readbyid(int id) {
         return incomeRepository.findById(id);
     }
+
+    @Override
+    public List<Object[]> readtodaytotal(int id) {
+        return incomeRepository.dayTotalIncomes(id);
+    }
+
+    @Override
+    public List<Object[]> readweektotal(int id) {
+        return incomeRepository.weekTotalIncomes(id);
+    }
+
+    @Override
+    public List<Object[]> readmonthtotal(int id) {
+        return incomeRepository.monthTotalIncomes(id);
+    }
+
+    @Override
+    public List<Object[]> readyeartotal(int id) {
+        return incomeRepository.yearTotalIncomes(id);
+    }
 }
