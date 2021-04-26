@@ -19,14 +19,14 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "FROM purchases " +
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
-                    "WHERE date = current_date " +
+                    "WHERE DATE(date) = current_date " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "UNION " +
                     "SELECT productcategories.name, SUM(total) " +
                     "FROM purchases " +
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
-                    "WHERE date = current_date " +
+                    "WHERE DATE(date) = current_date " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "GROUP BY productcategories.name;",
             nativeQuery = true)
@@ -97,14 +97,14 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "FROM purchases " +
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
-                    "WHERE date = current_date " +
+                    "WHERE DATE(date) = current_date " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "UNION " +
                     "SELECT SUM(total) " +
                     "FROM incomes " +
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
-                    "WHERE date = current_date " +
+                    "WHERE DATE(date) = current_date " +
                     "AND incomecategories.clients = :id_client) AS query_in;",
             nativeQuery = true)
     List<Object[]> balanceToday(@Param("id_client") Integer id);
