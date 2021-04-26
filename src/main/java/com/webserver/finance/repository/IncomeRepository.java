@@ -17,14 +17,14 @@ public interface IncomeRepository extends JpaRepository<Income,Integer> {
                     "FROM incomes " +
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
-                    "WHERE EXTRACT(DATE FROM date) = EXTRACT(DATE FROM current_timestamp) " +
+                    "WHERE date = current_date " +
                     "AND incomecategories.clients = :id_client " +
                     "UNION  " +
                     "SELECT incomecategories.name, SUM(total) " +
                     "FROM incomes " +
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
-                    "WHERE EXTRACT(DATE FROM date) = EXTRACT(DATE FROM current_timestamp) " +
+                    "WHERE date = current_date " +
                     "AND incomecategories.clients = :id_client " +
                     "GROUP BY incomecategories.name;",
             nativeQuery = true)
