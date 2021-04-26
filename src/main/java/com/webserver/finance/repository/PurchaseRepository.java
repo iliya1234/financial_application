@@ -19,14 +19,14 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "FROM purchases " +
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
-                    "WHERE EXTRACT(DAY FROM date) = EXTRACT(DAY FROM current_timestamp) " +
+                    "WHERE EXTRACT(DATE FROM date) = EXTRACT(DATE FROM current_timestamp) " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "UNION " +
                     "SELECT productcategories.name, SUM(total) " +
                     "FROM purchases " +
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
-                    "WHERE EXTRACT(DAY FROM date) = EXTRACT(DAY FROM current_timestamp) " +
+                    "WHERE EXTRACT(DATE FROM date) = EXTRACT(DATE FROM current_timestamp) " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "GROUP BY productcategories.name;",
             nativeQuery = true)
@@ -38,6 +38,7 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
                     "WHERE EXTRACT(Week FROM date) = EXTRACT(Week FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "UNION " +
                     "SELECT productcategories.name, SUM(total) " +
@@ -45,6 +46,7 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
                     "WHERE EXTRACT(Week FROM date) = EXTRACT(Week FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "GROUP BY productcategories.name;",
             nativeQuery = true)
@@ -56,6 +58,7 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
                     "WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "UNION " +
                     "SELECT productcategories.name, SUM(total) " +
@@ -63,6 +66,7 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
                     "WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "GROUP BY productcategories.name;",
             nativeQuery = true)
@@ -93,14 +97,14 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "FROM purchases " +
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
-                    "WHERE EXTRACT(DAY FROM date) = EXTRACT(DAY FROM current_timestamp) " +
+                    "WHERE EXTRACT(DATE FROM date) = EXTRACT(DATE FROM current_timestamp) " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "UNION " +
                     "SELECT SUM(total) " +
                     "FROM incomes " +
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
-                    "WHERE EXTRACT(DAY FROM date) = EXTRACT(DAY FROM current_timestamp) " +
+                    "WHERE EXTRACT(DATE FROM date) = EXTRACT(DATE FROM current_timestamp) " +
                     "AND incomecategories.clients = :id_client) AS query_in;",
             nativeQuery = true)
     List<Object[]> balanceToday(@Param("id_client") Integer id);
@@ -113,6 +117,7 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
                     "WHERE EXTRACT(Week FROM date) = EXTRACT(Week FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "UNION " +
                     "SELECT SUM(total) " +
@@ -120,6 +125,7 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
                     "WHERE EXTRACT(Week FROM date) = EXTRACT(Week FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND incomecategories.clients = :id_client) AS query_in;",
             nativeQuery = true)
     List<Object[]> balanceWeek(@Param("id_client") Integer id);
@@ -132,6 +138,7 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "INNER JOIN products ON purchases.product_id = products.id " +
                     "INNER JOIN productcategories ON products.category_id = productcategories.id " +
                     "WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND productcategories.authorizationclients_id = :id_client " +
                     "UNION " +
                     "SELECT SUM(total) " +
@@ -139,6 +146,7 @@ public interface PurchaseRepository extends JpaRepository<Purchase,Integer> {
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
                     "WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND incomecategories.clients = :id_client) AS query_in;",
             nativeQuery = true)
     List<Object[]> balanceMonth(@Param("id_client") Integer id);

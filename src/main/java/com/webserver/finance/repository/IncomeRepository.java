@@ -17,14 +17,14 @@ public interface IncomeRepository extends JpaRepository<Income,Integer> {
                     "FROM incomes " +
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
-                    "WHERE EXTRACT(DAY FROM date) = EXTRACT(DAY FROM current_timestamp) " +
+                    "WHERE EXTRACT(DATE FROM date) = EXTRACT(DATE FROM current_timestamp) " +
                     "AND incomecategories.clients = :id_client " +
                     "UNION  " +
                     "SELECT incomecategories.name, SUM(total) " +
                     "FROM incomes " +
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
-                    "WHERE EXTRACT(DAY FROM date) = EXTRACT(DAY FROM current_timestamp) " +
+                    "WHERE EXTRACT(DATE FROM date) = EXTRACT(DATE FROM current_timestamp) " +
                     "AND incomecategories.clients = :id_client " +
                     "GROUP BY incomecategories.name;",
             nativeQuery = true)
@@ -35,6 +35,7 @@ public interface IncomeRepository extends JpaRepository<Income,Integer> {
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
                     "WHERE EXTRACT(WEEK FROM date) = EXTRACT(WEEK FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND incomecategories.clients = :id_client " +
                     "UNION  " +
                     "SELECT incomecategories.name, SUM(total) " +
@@ -42,6 +43,7 @@ public interface IncomeRepository extends JpaRepository<Income,Integer> {
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
                     "WHERE EXTRACT(WEEK FROM date) = EXTRACT(WEEK FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND incomecategories.clients = :id_client " +
                     "GROUP BY incomecategories.name;",
             nativeQuery = true)
@@ -52,6 +54,7 @@ public interface IncomeRepository extends JpaRepository<Income,Integer> {
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
                     "WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND incomecategories.clients = :id_client " +
                     "UNION  " +
                     "SELECT incomecategories.name, SUM(total) " +
@@ -59,6 +62,7 @@ public interface IncomeRepository extends JpaRepository<Income,Integer> {
                     "INNER JOIN incomeproducts ON incomes.incomeproduct_id = incomeproducts.id " +
                     "INNER JOIN incomecategories ON incomeproducts.category_id = incomecategories.id " +
                     "WHERE EXTRACT(MONTH FROM date) = EXTRACT(MONTH FROM current_timestamp) " +
+                    "AND EXTRACT(Year FROM date) = EXTRACT(Year FROM current_timestamp) " +
                     "AND incomecategories.clients = :id_client " +
                     "GROUP BY incomecategories.name;",
             nativeQuery = true)
