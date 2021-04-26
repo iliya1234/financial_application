@@ -81,4 +81,24 @@ public class PurchaseController {
         return purchaseService.readyeartotal(id);
     }
 
+    @GetMapping(value = "/getbalancetoday/{id}")
+    public List<Object[]> getInfoBalanceToday(@PathVariable int id){
+        return purchaseService.readbalancetoday(id);
+    }
+
+    @GetMapping(value = "/getbalanceweek/{id}")
+    public List<Object[]> getInfoBalanceWeek(@PathVariable int id){
+        return purchaseService.readbalanceweek(id);
+    }
+
+    @GetMapping(value = "/getbalancemonth/{id}")
+    public List<Object[]> getInfoBalanceMonth(@PathVariable int id){
+        return purchaseService.readbalancemonth(id);
+    }
+
+    @GetMapping(value = "/getbalanceyear/{id}")
+    public List<Object[]> getInfoBalanceYear(@PathVariable int id){
+        return purchaseService.readbalanceyear(id);
+    }
+
 }
