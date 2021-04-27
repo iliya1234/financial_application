@@ -33,11 +33,4 @@ public interface PurchaseService {
 
     List<Object[]>readyeartotal(int id);
 
-    List<Object[]>readbalancetoday(int id);
-
-    List<Object[]>readbalanceweek(int id);
-
-    List<Object[]>readbalancemonth(int id);
-
-    List<Object[]>readbalanceyear(int id);
 }

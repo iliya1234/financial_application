@@ -61,43 +61,22 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     public List<Object[]> readtodaytotal(int id) {
-        return purchaseRepository.todayTotalPurchases(id);
+        return purchaseRepository.todayTotal(id);
     }
 
     @Override
     public List<Object[]> readweektotal(int id) {
-        return purchaseRepository.weekTotalPurchases(id);
+        return purchaseRepository.weekTotal(id);
     }
 
     @Override
     public List<Object[]> readmonthtotal(int id) {
-        return purchaseRepository.monthTotalPurchases(id);
+        return purchaseRepository.monthTotal(id);
     }
 
     @Override
     public List<Object[]> readyeartotal(int id) {
-        return purchaseRepository.yearTotalPurchases(id);
+        return purchaseRepository.yearTotal(id);
     }
-
-    @Override
-    public List<Object[]> readbalancetoday(int id) {
-        return purchaseRepository.balanceToday(id);
-    }
-
-    @Override
-    public List<Object[]> readbalanceweek(int id) {
-        return purchaseRepository.balanceWeek(id);
-    }
-
-    @Override
-    public List<Object[]> readbalancemonth(int id) {
-        return purchaseRepository.balanceMonth(id);
-    }
-
-    @Override
-    public List<Object[]> readbalanceyear(int id) {
-        return purchaseRepository.balanceYear(id);
-    }
-
 
 }

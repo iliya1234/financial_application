@@ -61,44 +61,25 @@ public class PurchaseController {
         return purchaseService.readbyid(id);
     }
 
-    @GetMapping(value = "/purchases/gettotaltoday/{id}")
+    @GetMapping(value = "/gettotaltoday/{id}")
     public List<Object[]> getInfoToday(@PathVariable int id){
         return purchaseService.readtodaytotal(id);
     }
 
-    @GetMapping(value = "/purchases/gettotalweek/{id}")
+    @GetMapping(value = "/gettotalweek/{id}")
     public List<Object[]> getInfoWeek(@PathVariable int id){
         return purchaseService.readweektotal(id);
     }
 
-    @GetMapping(value = "/purchases/gettotalmonth/{id}")
+    @GetMapping(value = "/gettotalmonth/{id}")
     public List<Object[]> getInfoMounth(@PathVariable int id){
         return purchaseService.readmonthtotal(id);
     }
 
-    @GetMapping(value = "/purchases/gettotalyear/{id}")
+    @GetMapping(value = "/gettotalyear/{id}")
     public List<Object[]> getInfoYear(@PathVariable int id){
         return purchaseService.readyeartotal(id);
     }
 
-    @GetMapping(value = "/getbalancetoday/{id}")
-    public List<Object[]> getInfoBalanceToday(@PathVariable int id){
-        return purchaseService.readbalancetoday(id);
-    }
-
-    @GetMapping(value = "/getbalanceweek/{id}")
-    public List<Object[]> getInfoBalanceWeek(@PathVariable int id){
-        return purchaseService.readbalanceweek(id);
-    }
-
-    @GetMapping(value = "/getbalancemonth/{id}")
-    public List<Object[]> getInfoBalanceMonth(@PathVariable int id){
-        return purchaseService.readbalancemonth(id);
-    }
-
-    @GetMapping(value = "/getbalanceyear/{id}")
-    public List<Object[]> getInfoBalanceYear(@PathVariable int id){
-        return purchaseService.readbalanceyear(id);
-    }
 
 }
