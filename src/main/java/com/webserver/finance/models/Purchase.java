@@ -21,7 +21,7 @@ public class Purchase {
     @Column(name = "total",nullable = false)
     private Double total;
 
-    @Column(name = "discription")
+    @Column(name = "description")
     private String discription;
 
     @ManyToOne
