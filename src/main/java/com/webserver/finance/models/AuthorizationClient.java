@@ -16,11 +16,10 @@ public class AuthorizationClient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @JsonIgnore
+
     @Column(name = "username",nullable = false)
     private String username;
 
-    @JsonIgnore
     @Column(name = "password",nullable = false)
     private String password;
 

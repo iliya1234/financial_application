@@ -22,7 +22,7 @@ public class Purchase {
     private Double total;
 
     @Column(name = "description")
-    private String discription;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "product_id",nullable = false)
@@ -32,11 +32,11 @@ public class Purchase {
     public Purchase() {
     }
 
-    public Purchase(Integer id, Date date, Double total, String discription, Product product) {
+    public Purchase(Integer id, Date date, Double total, String description, Product product) {
         this.id = id;
         this.date = date;
         this.total = total;
-        this.discription = discription;
+        this.description = description;
         this.product = product;
     }
 
@@ -64,12 +64,12 @@ public class Purchase {
         this.total = total;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Product getProduct() {
@@ -86,7 +86,7 @@ public class Purchase {
                 "id=" + id +
                 ", date=" + date +
                 ", total=" + total +
-                ", discription='" + discription + '\'' +
+                ", description='" + description + '\'' +
                 ", product=" + product +
                 '}';
     }

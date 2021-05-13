@@ -52,12 +52,15 @@ public class PurchaseController {
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
+
     @GetMapping(value = "/purchases/{id}")
     public List<Purchase> readPurchases(@PathVariable int id){
+
         return purchaseService.readbyclient(id);
     }
+
     @GetMapping(value = "/purchases/info/{id}")
-    public Purchase read(@PathVariable int id){
+    public Purchase readInfo(@PathVariable int id){
         return purchaseService.readbyid(id);
     }
 
