@@ -21,8 +21,8 @@ public class Income {
     @Column(name = "total",nullable = false)
     private Double total;
 
-    @Column(name = "discription")
-    private String discription;
+    @Column(name = "description")
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "incomeproduct_id",nullable = false)
@@ -31,11 +31,11 @@ public class Income {
     public Income() {
     }
 
-    public Income(Integer id, Date date, Double total, String discription, IncomeProduct incomeProduct) {
+    public Income(Integer id, Date date, Double total, String description, IncomeProduct incomeProduct) {
         this.id = id;
         this.date = date;
         this.total = total;
-        this.discription = discription;
+        this.description = description;
         this.incomeProduct = incomeProduct;
     }
 
@@ -45,7 +45,7 @@ public class Income {
                 "id=" + id +
                 ", date=" + date +
                 ", total=" + total +
-                ", discription='" + discription + '\'' +
+                ", description='" + description + '\'' +
                 ", incomeProduct=" + incomeProduct +
                 '}';
     }
@@ -74,12 +74,12 @@ public class Income {
         this.total = total;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public IncomeProduct getIncomeProduct() {
