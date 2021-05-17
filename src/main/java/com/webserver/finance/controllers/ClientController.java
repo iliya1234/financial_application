@@ -1,6 +1,7 @@
 package com.webserver.finance.controllers;
 
 import com.webserver.finance.models.Client;
+import com.webserver.finance.models.IncomeProduct;
 import com.webserver.finance.service.Service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,5 +46,10 @@ public class ClientController {
         return deleted
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    }
+
+    @GetMapping(value = "/clients/{id}")
+    public Client readByAuthorization(@PathVariable int id){
+        return clientService.authorization(id);
     }
 }

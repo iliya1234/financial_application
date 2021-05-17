@@ -36,34 +36,36 @@ public class AuthorizationClient {
     @OneToMany(mappedBy="clients",cascade = CascadeType.ALL)
     private List<IncomeCategory> incomeCategories;
 
+    @JsonIgnore
+    @OneToOne(mappedBy = "authorization",cascade = CascadeType.ALL)
+    private Client client;
+
 
 
     public AuthorizationClient() {
     }
 
-    public AuthorizationClient(Integer id, String username, String password, List<ProductCategory> productCategories, List<Target> targets, List<IncomeCategory> incomeCategories) {
+    public AuthorizationClient(Integer id, String username, String password, List<ProductCategory> productCategories, List<Target> targets, List<IncomeCategory> incomeCategories, Client client) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.productCategories = productCategories;
         this.targets = targets;
         this.incomeCategories = incomeCategories;
+        this.client = client;
     }
 
-    public List<Target> getTargets() {
-        return targets;
-    }
-
-    public void setTargets(List<Target> targets) {
-        this.targets = targets;
-    }
-
-    public List<IncomeCategory> getIncomeCategories() {
-        return incomeCategories;
-    }
-
-    public void setIncomeCategories(List<IncomeCategory> incomeCategories) {
-        this.incomeCategories = incomeCategories;
+    @Override
+    public String toString() {
+        return "AuthorizationClient{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", productCategories=" + productCategories +
+                ", targets=" + targets +
+                ", incomeCategories=" + incomeCategories +
+                ", client=" + client +
+                '}';
     }
 
     public Integer getId() {
@@ -98,13 +100,27 @@ public class AuthorizationClient {
         this.productCategories = productCategories;
     }
 
-    @Override
-    public String toString() {
-        return "AuthorizationClient{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", productCategories=" + productCategories +
-                '}';
+    public List<Target> getTargets() {
+        return targets;
+    }
+
+    public void setTargets(List<Target> targets) {
+        this.targets = targets;
+    }
+
+    public List<IncomeCategory> getIncomeCategories() {
+        return incomeCategories;
+    }
+
+    public void setIncomeCategories(List<IncomeCategory> incomeCategories) {
+        this.incomeCategories = incomeCategories;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

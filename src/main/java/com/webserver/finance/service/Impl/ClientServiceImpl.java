@@ -48,6 +48,11 @@ public class ClientServiceImpl implements ClientService {
         }
         return false;
     }
+
+    @Override
+    public Client authorization(int id) {
+        return clientRepository.findByAuthorizationId(id);
+    }
 }
 
 

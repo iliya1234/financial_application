@@ -20,6 +20,34 @@ public class Client {
     @Column(name = "phone",nullable = false)
     private String phone;
 
+
+    @OneToOne
+    @JoinColumn(name="clients_id")
+    private AuthorizationClient authorization;
+
+
+    public Client() {
+    }
+
+    public Client(Integer id, String name, String email, String phone, AuthorizationClient authorization) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.authorization = authorization;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", authorization=" + authorization +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
@@ -50,5 +78,13 @@ public class Client {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public AuthorizationClient getAuthorization() {
+        return authorization;
+    }
+
+    public void setAuthorization(AuthorizationClient authorization) {
+        this.authorization = authorization;
     }
 }
